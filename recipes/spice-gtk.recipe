@@ -19,12 +19,23 @@ class Recipe(recipe.Recipe):
             Platform.LINUX: [ 'gtk+3', 'usbredir', 'librsvg' ]
             }
 
-    patches = ['spice-gtk/0001-Do-not-build-tests.patch']
-
     files_devel = ['include/spice-client-glib-2.0',
                    'lib/pkgconfig/spice-client-glib-2.0.pc']
 
     files_libs = ['libspice-client-glib-2.0']
+
+    def extract(self):
+        super(recipe.Recipe, self).extract()
+        call(["rm", "-rf", self.build_dir + "/spice-common/tests"])
+        call(["rm", "-rf", self.build_dir + "/tests"])
+        call(["mkdir", self.build_dir + "/spice-common/tests"])
+        call(["mkdir", self.build_dir + "/tests"])
+        call(["sed", "-i", "-s", 's@tests/Makefile@@', self.build_dir + "/spice-common/configure.ac"])
+        call(["sed", "-i", "-s", 's@tests/Makefile@@', self.build_dir + "/configure.ac"])
+        with open(self.build_dir + "/spice-common/tests/Makefile", "w+") as makefile:
+            makefile.write("all:\ninstall:")
+        with open(self.build_dir + "/tests/Makefile", "w+") as makefile:
+            makefile.write("all:\ninstall:")
 
     def prepare(self):
         self.configure_options += ' --disable-werror --disable-smartcard'
