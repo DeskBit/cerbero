@@ -4,8 +4,8 @@
 class Recipe(recipe.Recipe):
     name = 'spiceglue'
     version = '2.2.36'
-    commit = 'winClientv2.2.36'
-    remotes = {'origin': 'https://github.com/flexvdi/spiceglue'}
+    commit = 'a86f301f7d8e52c0f8be081dde4a5f9e2061e62f'
+    remotes = {'origin': 'https://github.com/DeskBit/spiceglue.git'}
 
     autoreconf = True 
     autoreconf_sh = 'autoreconf -fiv'
@@ -14,8 +14,6 @@ class Recipe(recipe.Recipe):
 
     licenses = [License.LGPLv2_1]
     deps = ['spice-protocol', 'spice-gtk']
-    platform_deps = {
-            Platform.WINDOWS: ['flexvdi-spice-client', 'libusb', 'usbredir']}
     files_libs = ['libspiceglue']
 
     def prepare(self):

@@ -10,8 +10,6 @@ class Recipe(recipe.Recipe):
 
     deps = ['poppler-data', 'cairo']
 
-    patches = ['poppler/0001-Enable-compilation-under-mingw-w64.patch' ]
-
     def prepare(self):
         if self.config.target_platform == Platform.WINDOWS:
             self.configure_options += ' CPPFLAGS=" -DWIN32_LEAN_AND_MEAN -DMINGW_HAS_SECURE_API ${CPPFLAGS}" --disable-utils'

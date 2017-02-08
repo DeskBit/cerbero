@@ -3,10 +3,10 @@
 
 class Recipe(recipe.Recipe):
     name = 'spice-protocol'
-    version = '0.12.10-flexvdi'
+    version = '0.12.13'
     # either LGPLv2.1 or MPLv1.1
     licenses = [License.LGPLv2_1]
-    remotes = {'origin': 'https://git.flexvdi.com/scm/flexvdi/spice-protocol.git'}
+    remotes = {'origin': 'https://anongit.freedesktop.org/git/spice/spice-protocol.git'}
     commit = 'origin/master'
     autoreconf = True
     autoreconf_sh = 'NOCONFIGURE=1 ./autogen.sh'
