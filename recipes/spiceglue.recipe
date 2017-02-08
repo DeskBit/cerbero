@@ -4,7 +4,7 @@
 class Recipe(recipe.Recipe):
     name = 'spiceglue'
     version = '2.2.36'
-    commit = 'a86f301f7d8e52c0f8be081dde4a5f9e2061e62f'
+    commit = 'f68d821e15b82ed96c7c040ecfe7f341e5c36723'
     remotes = {'origin': 'https://github.com/DeskBit/spiceglue.git'}
 
     autoreconf = True 
