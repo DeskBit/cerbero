@@ -1,0 +1,35 @@
+From 43b2b3472543ddcd14557191773447a1a7a50dcd Mon Sep 17 00:00:00 2001
+From: "behrooz shabani (everplays)" <everplays@gmail.com>
+Date: Thu, 9 Feb 2017 20:46:19 +0100
+Subject: [PATCH 5/5] [PATCH] Remove "set_va_display_hook" symbol from linker
+ files.
+
+---
+ src/map-file            | 1 -
+ src/spice-glib-sym-file | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/src/map-file b/src/map-file
+index 7120025..1178304 100644
+--- a/src/map-file
++++ b/src/map-file
+@@ -138,7 +138,6 @@ spice_util_get_version_string;
+ spice_util_set_debug;
+ spice_uuid_to_string;
+ spice_webdav_channel_get_type;
+-set_va_display_hooks;
+ local:
+ *;
+ };
+diff --git a/src/spice-glib-sym-file b/src/spice-glib-sym-file
+index 5984f32..454bd29 100644
+--- a/src/spice-glib-sym-file
++++ b/src/spice-glib-sym-file
+@@ -111,4 +111,3 @@ spice_util_get_version_string
+ spice_util_set_debug
+ spice_uuid_to_string
+ spice_webdav_channel_get_type
+-set_va_display_hooks
+-- 
+2.11.1
+

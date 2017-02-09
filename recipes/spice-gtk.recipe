@@ -4,7 +4,7 @@ class Recipe(recipe.Recipe):
     name = 'spice-gtk'
     version = '0.29-flexvdi'
     remotes = {'origin': 'https://github.com/flexVDI/spice-gtk.git'}
-    commit = 'v0.29-fv1'
+    commit = 'origin/master'
     # either LGPLv2.1 or MPLv1.1
     licenses = [License.LGPLv2_1]
     autoreconf = True 
@@ -19,7 +19,7 @@ class Recipe(recipe.Recipe):
             Platform.LINUX: [ 'gtk+3', 'usbredir', 'librsvg' ]
             }
 
-    patches = ['spice-gtk/0001-Do-not-build-tests.patch']
+    patches = ['spice-gtk/0001-PATCH-Do-not-build-tests.patch']
 
     files_devel = ['include/spice-client-glib-2.0',
                    'lib/pkgconfig/spice-client-glib-2.0.pc']
@@ -34,9 +34,9 @@ class Recipe(recipe.Recipe):
                                           Platform.DARWIN,
                                           Platform.ANDROID]:
             self.configure_options += ' --enable-static --with-gtk=no --with-coroutine=gthread '
-            self.patches += ['spice-gtk/0003-Remove-spice_usb_device_get_libusb_device-symbol-fro.patch',
-                             'spice-gtk/0004-Remove-spice_usb_device_get_libusb_device-from-spice.patch',
-                             'spice-gtk/0005-Remove-set_va_display_hook-symbol-from-linker-files.patch']
+            self.patches += ['spice-gtk/0003-patch-Remove-spice_usb_device_get_libusb_device-symb.patch',
+                             'spice-gtk/0004-patch-Remove-spice_usb_device_get_libusb_device-from.patch',
+                             'spice-gtk/0005-PATCH-Remove-set_va_display_hook-symbol-from-linker-.patch']
         elif self.config.target_platform == Platform.WINDOWS:
             self.configure_options += ' --with-gtk=no'
             self.configure_options += ' --enable-usb-redir --with-usb-ids-path=./usb.ids'
@@ -45,7 +45,7 @@ class Recipe(recipe.Recipe):
             self.use_system_libs = True
             self.configure_options += ' --with-gtk=3.0 --enable-spicy=no --disable-vala'
             self.configure_options += ' --enable-usb-redir --with-usb-ids-path=./usb.ids'
-            self.patches.append('spice-gtk/0002-use-alsasink-instead-of-autoaudiosink.patch')
+            self.patches.append('spice-gtk/0002-patch-Use-alsasink-instead-of-autoaudiosink.patch')
             if self.config.variants.va:
                 self.configure_options += ' --enable-va'
                 self.deps += ['libva']

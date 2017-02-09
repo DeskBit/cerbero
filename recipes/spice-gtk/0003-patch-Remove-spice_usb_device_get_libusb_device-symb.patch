@@ -1,0 +1,25 @@
+From bfcce28d0626b6ddd33ac3422d999e2286201ae0 Mon Sep 17 00:00:00 2001
+From: "behrooz shabani (everplays)" <everplays@gmail.com>
+Date: Thu, 9 Feb 2017 20:44:34 +0100
+Subject: [PATCH 3/5] [patch] Remove spice_usb_device_get_libusb_device symbol
+ from map-file
+
+---
+ src/map-file | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/map-file b/src/map-file
+index 98c19c7..7120025 100644
+--- a/src/map-file
++++ b/src/map-file
+@@ -120,7 +120,6 @@ spice_uri_set_scheme;
+ spice_uri_set_user;
+ spice_uri_to_string;
+ spice_usb_device_get_description;
+-spice_usb_device_get_libusb_device;
+ spice_usb_device_get_type;
+ spice_usb_device_manager_can_redirect_device;
+ spice_usb_device_manager_connect_device_async;
+-- 
+2.11.1
+
